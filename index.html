@@ -22,31 +22,32 @@
 	<div class= "row">
 		<div class="col-md-12">
 			<div id="character-rey">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="150" data-cp="10">
 					<p class="character-text">Rey</p>
 					<img src="assets/images/rey.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="rey-hp">150</p>
+					<p class="cp-text" id="attacker-hp">150</p>
 				</button>
 			</div>
 			<div id="character-han-solo">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="180" data-cp="25">
 					<p class="character-text">Han Solo</p>
 					<img src="assets/images/han-solo.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="han-solo-hp">180</p>
+					<p class="cp-text" id="attacker-hp">180</p>
 				</button>
 			</div>
 			<div id="character-poe">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="120" data-cp="8">
 					<p class="character-text">Poe Dameron</p>
 					<img src="assets/images/poe-dameron.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="poe-hp">120</p>
+					<p class="cp-text" id="attacker-hp">120</p>
 				</button>
 			</div>
 			<div id="character-kylo-ren">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters"
+				data-hp="100" data-cp="5">
 					<p class="character-text">Kylo Ren</p>
 					<img src="assets/images/kylo-ren.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="kylo-ren-hp">100</p>
+					<p class="cp-text" id="attacker-hp">100</p>
 				</button>
 			</div>
 		</div>
@@ -62,28 +63,28 @@
 				<button class="btn btn-default btn-characters">
 					<p class="character-text">Rey</p>
 					<img src="assets/images/rey.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="rey-cp">150</p>
+					<p class="cp-text" id="rey-hp">150</p>
 				</button>
 			</div>
 			<div id="attacker-han-solo">
 				<button class="btn btn-default btn-characters">
 					<p class="character-text">Han Solo</p>
 					<img src="assets/images/han-solo.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="han-solo-cp">180</p>
+					<p class="cp-text" id="han-solo-hp">180</p>
 				</button>
 			</div>
 			<div id="attacker-poe">
 				<button class="btn btn-default btn-characters">
 					<p class="character-text">Poe Dameron</p>
 					<img src="assets/images/poe-dameron.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="poe-cp">120</p>
+					<p class="cp-text" id="poe-hp">120</p>
 				</button>
 			</div>
 			<div id="attacker-kylo-ren">
 				<button class="btn btn-default btn-characters">
 					<p class="character-text">Kylo Ren</p>
 					<img src="assets/images/kylo-ren.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="kylo-ren-cp">100</p>
+					<p class="cp-text" id="kylo-ren-hp">100</p>
 				</button>
 			</div>
 		</div>
@@ -109,28 +110,28 @@
 				<button class="btn btn-default btn-characters" data-hp="150" data-cp="10">
 					<p class="character-text">Rey</p>
 					<img src="assets/images/rey.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="rey-cp">150</p>
+					<p class="cp-text defender-hp">150</p>
 				</button>
 			</div>
 			<div id="defender-han-solo">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="180" data-cp="25">
 					<p class="character-text">Han Solo</p>
 					<img src="assets/images/han-solo.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="han-solo-cp">180</p>
+					<p class="cp-text defender-hp">180</p>
 				</button>
 			</div>
 			<div id="defender-poe">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="120" data-cp="8">
 					<p class="character-text">Poe Dameron</p>
 					<img src="assets/images/poe-dameron.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="poe-cp">120</p>
+					<p class="cp-text defender-hp">120</p>
 				</button>
 			</div>
 			<div id="defender-kylo-ren">
-				<button class="btn btn-default btn-characters">
+				<button class="btn btn-default btn-characters" data-hp="100" data-cp="5">
 					<p class="character-text">Kylo Ren</p>
 					<img src="assets/images/kylo-ren.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="kylo-ren-cp">100</p>
+					<p class="cp-text defender-hp">100</p>
 				</button>
 			</div>
 		</div>
@@ -146,15 +147,10 @@
 //hide character buttons that are not needed at the start of the game
 StartGame();
 
-var reyHp = 150;
-var hansoloHp = 180;
-var poeHp = 120;
-var kylorenHp = 100;
-
-var reyCp = 10;
-var hansoloCp = 25;
-var poeCp = 8;
-var kylorenCp = 5;
+var attackerHp = 1;
+var attackerCp = 1;
+var defenderHp = 1;
+var defenderCp = 1;
 
 
 
@@ -181,6 +177,9 @@ $('#character-rey').one('click', function(){
 	$('#attacker-han-solo').show();
 	$('#attacker-poe').show();
 	$('#attacker-kylo-ren').show();
+
+	attackerHp = 150;
+	attackerCp = 10;
 });
 
 $('#character-han-solo').one('click', function(){
@@ -191,6 +190,9 @@ $('#character-han-solo').one('click', function(){
 	$('#attacker-rey').show();
 	$('#attacker-poe').show();
 	$('#attacker-kylo-ren').show();
+
+	attackerHp = 180;
+	attackerCp = 25;
 });
 
 $('#character-poe').one('click', function(){
@@ -201,6 +203,9 @@ $('#character-poe').one('click', function(){
 	$('#attacker-rey').show();
 	$('#attacker-han-solo').show();
 	$('#attacker-kylo-ren').show();
+
+	attackerHp = 120;
+	attackerCp = 8;
 });
 
 $('#character-kylo-ren').one('click', function(){
@@ -211,6 +216,9 @@ $('#character-kylo-ren').one('click', function(){
 	$('#attacker-rey').show();
 	$('#attacker-poe').show();
 	$('#attacker-han-solo').show();
+
+	attackerHp = 100;
+	attackerCp = 5;
 });
 
 // on click of available enemies move them to defender
@@ -218,32 +226,54 @@ $('#character-kylo-ren').one('click', function(){
 $('#attacker-rey').on('click', function () {
 	$('#attacker-rey').hide();
 	$('#defender-rey').show();
+
+	defenderHp = 150;
+	defenderCp = 10;
 });
 
 $('#attacker-han-solo').on('click', function () {
 	$('#attacker-han-solo').hide();
 	$('#defender-han-solo').show();
+
+	defenderHp = 180;
+	defenderCp = 25;
 });
 
 $('#attacker-poe').on('click', function (){
 	$('#attacker-poe').hide();
 	$('#defender-poe').show();
+
+	defenderHp = 120;
+	defenderCp = 8;
 });
 
 $('#attacker-kylo-ren').on('click', function (){
 	$('#attacker-kylo-ren').hide();
 	$('#defender-kylo-ren').show();
-});
-// attack button
-	// take var of character worth 
- //if (($('#character-rey:visible')) && ($('#defender-han-solo:visible'))){
- 	//	if($('#btn-attack').on('click')){
- 	//		reyHp - hansoloCp;
- 	//		hansoloHp - reyCp;
- 	//		console.log(reyHp);
- //		};
- //};
 
+	defenderHp = 100;
+	defenderCp = 5;
+});
+
+$('#btn-reset').on('click', function(){
+	StartGame();
+});
+
+
+$('#btn-attack').on('click', function(){
+	if (attackerHp > 0 && defenderHp > 0){
+		attackerHp = attackerHp - defenderCp;
+		defenderHp = defenderHp - attackerCp;
+
+		$('#attacker-hp').html(attackerHp);
+		//I had to change the defender-hp from ID to class because it wouldn't work as ID. LOL!!! :/
+		$('.defender-hp').html(defenderHp);
+	}else if(attackerHp <= 0){
+		alert("You lost! Reset the game!");
+		$('#btn-reset').show();
+	}
+
+});
 </script>
 </body>
 </html>
