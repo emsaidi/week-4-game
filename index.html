@@ -25,21 +25,21 @@
 				<button class="btn btn-default btn-characters" data-hp="150" data-cp="10">
 					<p class="character-text">Rey</p>
 					<img src="assets/images/rey.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="attacker-hp">150</p>
+					<p class="cp-text attacker-hp">150</p>
 				</button>
 			</div>
 			<div id="character-han-solo">
 				<button class="btn btn-default btn-characters" data-hp="180" data-cp="25">
 					<p class="character-text">Han Solo</p>
 					<img src="assets/images/han-solo.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="attacker-hp">180</p>
+					<p class="cp-text attacker-hp">180</p>
 				</button>
 			</div>
 			<div id="character-poe">
 				<button class="btn btn-default btn-characters" data-hp="120" data-cp="8">
 					<p class="character-text">Poe Dameron</p>
 					<img src="assets/images/poe-dameron.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="attacker-hp">120</p>
+					<p class="cp-text attacker-hp">120</p>
 				</button>
 			</div>
 			<div id="character-kylo-ren">
@@ -47,7 +47,7 @@
 				data-hp="100" data-cp="5">
 					<p class="character-text">Kylo Ren</p>
 					<img src="assets/images/kylo-ren.png" alt="Rey" class="img-thumbnail" class="character-img">
-					<p class="cp-text" id="attacker-hp">100</p>
+					<p class="cp-text attacker-hp">100</p>
 				</button>
 			</div>
 		</div>
@@ -166,6 +166,12 @@ function StartGame(){
 	$('#defender-kylo-ren').hide();
 
 	$('#btn-reset').hide();
+
+	attackerHp = 1;
+	attackerCp = 1;
+	defenderHp = 1;
+	defenderCp = 1;
+
 }
 
 // on click of any of them move them to available enemies
@@ -227,6 +233,10 @@ $('#attacker-rey').on('click', function () {
 	$('#attacker-rey').hide();
 	$('#defender-rey').show();
 
+	$('#defender-han-solo').hide();
+	$('#defender-poe').hide();
+	$('#defender-kylo-ren').hide();
+
 	defenderHp = 150;
 	defenderCp = 10;
 });
@@ -234,6 +244,10 @@ $('#attacker-rey').on('click', function () {
 $('#attacker-han-solo').on('click', function () {
 	$('#attacker-han-solo').hide();
 	$('#defender-han-solo').show();
+
+	$('#defender-rey').hide();
+	$('#defender-poe').hide();
+	$('#defender-kylo-ren').hide();
 
 	defenderHp = 180;
 	defenderCp = 25;
@@ -243,6 +257,10 @@ $('#attacker-poe').on('click', function (){
 	$('#attacker-poe').hide();
 	$('#defender-poe').show();
 
+	$('#defender-han-solo').hide();
+	$('#defender-rey').hide();
+	$('#defender-kylo-ren').hide();
+
 	defenderHp = 120;
 	defenderCp = 8;
 });
@@ -251,12 +269,16 @@ $('#attacker-kylo-ren').on('click', function (){
 	$('#attacker-kylo-ren').hide();
 	$('#defender-kylo-ren').show();
 
+	$('#defender-han-solo').hide();
+	$('#defender-poe').hide();
+	$('#defender-rey').hide();
+
 	defenderHp = 100;
 	defenderCp = 5;
 });
 
 $('#btn-reset').on('click', function(){
-	StartGame();
+	location.reload();
 });
 
 
@@ -265,12 +287,13 @@ $('#btn-attack').on('click', function(){
 		attackerHp = attackerHp - defenderCp;
 		defenderHp = defenderHp - attackerCp;
 
-		$('#attacker-hp').html(attackerHp);
-		//I had to change the defender-hp from ID to class because it wouldn't work as ID. LOL!!! :/
+		$('.attacker-hp').html(attackerHp);
 		$('.defender-hp').html(defenderHp);
 	}else if(attackerHp <= 0){
 		alert("You lost! Reset the game!");
 		$('#btn-reset').show();
+	}else if(defenderHp <= 0){
+		alert("Select another attacker!");
 	}
 
 });
